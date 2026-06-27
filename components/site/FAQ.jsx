@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, HelpCircle } from 'lucide-react'
+import AnimatedBackground from '../ui/AnimatedBackground'
 
 const FAQS = [
   { q: 'What is Background Verification (BGV)?', a: 'Background Verification is the process of authenticating a candidate\'s identity, employment, education, address, criminal history and other credentials to make confident, risk-aware hiring decisions.' },
@@ -15,7 +16,8 @@ const FAQS = [
 export default function FAQ() {
   const [open, setOpen] = useState(0)
   return (
-    <section className="py-20">
+    <section className="py-16">
+      {/* <AnimatedBackground/> */}
       <div className="container-x grid lg:grid-cols-[1fr_1.4fr] gap-12">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EAF2FF] text-[#0052CC] text-[11px] font-bold uppercase tracking-[0.18em]">FAQ</div>

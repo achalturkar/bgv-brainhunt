@@ -56,6 +56,10 @@ body { font-family: var(--font-inter), system-ui, -apple-system, sans-serif; }
 @keyframes blob { 0%,100% { border-radius: 60% 40% 70% 30% / 60% 30% 70% 40%; } 50% { border-radius: 30% 70% 40% 60% / 40% 60% 30% 70%; } }
 @keyframes gradient { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 @keyframes blink { 50% { opacity: 0; } }
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
 
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: #F8FAFC; }

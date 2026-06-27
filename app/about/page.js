@@ -1,4 +1,6 @@
 'use client'
+import CTA from '@/components/site/CTA'
+import WhyChooseUs from '@/components/site/WhyChooseUs'
 import { motion } from 'framer-motion'
 import { ShieldCheck, Target, Eye, Zap, Cpu, Activity, Lock, Headphones, ClipboardCheck, Award, FileCheck2, Database } from 'lucide-react'
 
@@ -27,7 +29,7 @@ const security = [
 
 export default function AboutPage() {
   return (
-    <div className="pt-24 lg:pt-28">
+    <div className="pt-8">
       <section className="container-x">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EAF2FF] text-[#0052CC] text-[11px] font-bold uppercase tracking-[0.18em]">About Brainhunt Ventures</div>
@@ -49,22 +51,7 @@ export default function AboutPage() {
         ))}
       </section>
 
-      <section className="py-20 mt-10 bg-gradient-to-b from-[#F8FAFF] to-white">
-        <div className="container-x">
-          <h2 className="text-3xl font-bold text-center">Why Choose Us</h2>
-          <p className="mt-3 text-center text-slate-600 max-w-2xl mx-auto">Six pillars that make Brainhunt Ventures India's verification partner of choice.</p>
-          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {whyChoose.map((w, i) => (
-              <motion.div key={w.t} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i*0.05 }} className="rounded-2xl border border-slate-200 bg-white p-6 hover:border-[#0052CC]/40 hover:shadow-glow transition-all">
-                <div className="h-11 w-11 rounded-xl bg-[#EAF2FF] text-[#0052CC] flex items-center justify-center"><w.icon className="h-5 w-5" /></div>
-                <h3 className="mt-4 font-semibold">{w.t}</h3>
-                <p className="mt-1.5 text-sm text-slate-600">{w.d}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+     <WhyChooseUs/>
       <section className="py-20">
         <div className="container-x">
           <h2 className="text-3xl font-bold text-center">Our Process</h2>
@@ -100,6 +87,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <CTA/>
     </div>
   )
 }

@@ -19,7 +19,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="pt-24 lg:pt-28 pb-16">
+    <div className="pt-8 pb-16">
       <section className="container-x text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EAF2FF] text-[#0052CC] text-[11px] font-bold uppercase tracking-[0.18em]">Contact Us</div>
         <h1 className="mt-4 text-4xl sm:text-5xl font-bold tracking-tight">Let's build a <span className="text-gradient">trusted workforce</span> together</h1>
@@ -29,7 +29,7 @@ export default function ContactPage() {
       <section className="container-x mt-14 grid lg:grid-cols-5 gap-8">
         <div className="lg:col-span-2 space-y-4">
           {[
-            { icon: Phone, k: 'Call us', v: '+91 9960224245', href: 'tel:+919960224245' },
+            { icon: Phone, k: 'Call us', v: '+91 9960224245 / +91 9689003720', href: 'tel:+919960224245' },
             { icon: Mail, k: 'Email', v: 'contact@brainhuntventures.com', href: 'mailto:contact@brainhuntventures.com' },
             { icon: MessageCircle, k: 'WhatsApp', v: 'Chat with our team', href: 'https://wa.me/919960224245' },
             { icon: MapPin, k: 'Nagpur (HQ)', v: 'Plot No.3, Indraprastha Apartment, Dronacharya Nagar, Trimurti Nagar, Nagpur — 440022' },

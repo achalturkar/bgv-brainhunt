@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Logo from './Logo'
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram, Youtube, ArrowRight } from 'lucide-react'
+import AnimatedBackground from '../ui/AnimatedBackground'
 
 const services = ['PAN Verification','Aadhaar Verification','Education Verification','Employment Verification','Criminal Record Check','Address Verification','Reference Check','Credit Check','Police Verification','Global Database Check']
 const industries = ['IT & Software','Banking & Finance','NBFC','Insurance','Healthcare','Pharma','Manufacturing','Logistics','Retail','BPO/KPO']
@@ -10,6 +11,7 @@ const quick = [['About Us','/about'],['Products','/products'],['Services','/serv
 export default function Footer() {
   return (
     <footer className="relative mt-24 bg-gradient-to-b from-slate-950 to-[#001a4d] text-slate-300 overflow-hidden">
+      <AnimatedBackground/>
       <div className="absolute inset-0 opacity-20 bg-grid" />
       <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#0066FF]/10 blur-3xl rounded-full" />
 
@@ -57,9 +59,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-2 overflow-hidden">
+        {/* <div className="mt-12 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-2 overflow-hidden">
           <iframe title="Brainhunt Ventures Nagpur Office" src="https://www.google.com/maps?q=Trimurti+Nagar,+Nagpur,+Maharashtra+440022&output=embed" width="100%" height="220" style={{ border: 0, borderRadius: 12 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-        </div>
+        </div> */}
 
         <div className="mt-10 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>© {new Date().getFullYear()} Brainhunt Ventures Pvt. Ltd. All rights reserved.</p>

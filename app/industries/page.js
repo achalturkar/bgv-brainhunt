@@ -22,7 +22,7 @@ const industries = [
 
 export default function IndustriesPage() {
   return (
-    <div className="pt-24 lg:pt-28">
+    <div className="pt-8">
       <section className="container-x text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EAF2FF] text-[#0052CC] text-[11px] font-bold uppercase tracking-[0.18em]">Industries Served</div>
         <h1 className="mt-4 text-4xl sm:text-5xl font-bold tracking-tight">Tailored verification for <span className="text-gradient">every sector</span></h1>

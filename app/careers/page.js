@@ -18,7 +18,7 @@ const whyJoin = [
 
 export default function CareersPage() {
   return (
-    <div className="pt-24 lg:pt-28">
+    <div className="pt-8 ">
       <section className="container-x text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EAF2FF] text-[#0052CC] text-[11px] font-bold uppercase tracking-[0.18em]">Careers</div>
         <h1 className="mt-4 text-4xl sm:text-5xl font-bold tracking-tight">Build the future of <span className="text-gradient">trusted hiring</span></h1>

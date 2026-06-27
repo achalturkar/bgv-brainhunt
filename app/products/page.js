@@ -16,7 +16,7 @@ const features = [
 
 export default function ProductsPage() {
   return (
-    <div className="pt-24 lg:pt-28">
+    <div className="pt-0">
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#EAF2FF] via-white to-white" />
         <div className="absolute -top-32 right-0 w-[500px] h-[500px] bg-[#0066FF]/15 rounded-full blur-3xl animate-blob" />

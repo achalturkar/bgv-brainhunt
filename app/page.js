@@ -1,47 +1,258 @@
 'use client'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ShieldCheck, Zap, Globe, Lock, Users, Database, CheckCircle2, ArrowRight, FileCheck2, IdCard, GraduationCap, Briefcase, MapPin, Sparkles, BadgeCheck, Cpu, BarChart3, Search, ClipboardCheck, FileSearch, Award, Star, Quote, Phone, Mail } from 'lucide-react'
-import Counter from '@/components/site/Counter'
+import { ShieldCheck, Zap, Globe, Lock, Users, Database, CheckCircle2, ArrowRight, FileCheck2, IdCard, GraduationCap, Briefcase, MapPin, Sparkles, BadgeCheck, Cpu, BarChart3, Search, ClipboardCheck, FileSearch, Award, Star, Quote, Phone, Mail, Home, Fingerprint, CreditCard, Clock3 } from 'lucide-react'
+import {
+  Laptop,
+  Landmark,
+  Wallet,
+  Shield,
+  HeartPulse,
+  Pill,
+  Factory,
+  Truck,
+  ShoppingCart,
+  Headphones,
+  ShoppingBag,
+  RadioTower,
+  Building2,
+  Building,
+  
+
+} from "lucide-react";
 import Particles from '@/components/site/Particles'
 import Typewriter from '@/components/site/Typewriter'
 import FAQ from '@/components/site/FAQ'
+import CTA from '@/components/site/CTA'
+import Workflow from '@/components/site/Workflow'
+import ClientsMarquee from '@/components/site/ClientsMarquee';
+import WhyChooseUs from '@/components/site/WhyChooseUs';
+
+
 
 const services = [
-  { icon: IdCard, t: 'Identity Verification', d: 'PAN, Aadhaar, Passport & DL validation against authoritative sources.' },
-  { icon: FileCheck2, t: 'PAN Verification', d: 'Real-time PAN status & name match via NSDL/Income Tax APIs.' },
-  { icon: ShieldCheck, t: 'Aadhaar Verification', d: 'Offline e-KYC & OTP-based Aadhaar verification.' },
-  { icon: MapPin, t: 'Address Verification', d: 'On-ground physical or digital address checks across PAN India.' },
-  { icon: Briefcase, t: 'Employment Verification', d: 'Direct employer confirmation of role, tenure & exit reason.' },
-  { icon: GraduationCap, t: 'Education Verification', d: 'University & board level certificate authentication.' },
-  { icon: Search, t: 'Criminal Record Check', d: 'Court & police database screening for civil and criminal cases.' },
-  { icon: FileSearch, t: 'Court Record Check', d: 'Litigation history at District, High Court & Supreme Court.' },
-  { icon: BadgeCheck, t: 'Police Verification', d: 'Local police station coordination & character certificate.' },
-  { icon: Users, t: 'Reference Check', d: 'Structured reference interviews with verified contacts.' },
-  { icon: BarChart3, t: 'Credit / CIBIL Check', d: 'Credit history & financial integrity assessment.' },
-  { icon: Database, t: 'Global Database Check', d: 'Sanctions, PEPs and adverse media screening worldwide.' },
-]
+  {
+    icon: Home,
+    title: "Residence Verification (Digital)",
+    description:
+      "Digital address verification using trusted databases for quick and reliable validation.",
+    badge: "2 Days",
+    color: "from-blue-500 to-cyan-500",
+  },
+  {
+    icon: MapPin,
+    title: "Residence Verification (Physical)",
+    description:
+      "On-ground physical address verification conducted across PAN India.",
+    badge: "5 Days",
+    color: "from-green-500 to-emerald-500",
+  },
+  {
+    icon: GraduationCap,
+    title: "Academic Verification",
+    description:
+      "Verification of highest qualification directly from universities, colleges and educational boards.",
+    badge: "10 Days",
+    color: "from-purple-500 to-indigo-500",
+  },
+  {
+    icon: Briefcase,
+    title: "Employment Verification",
+    description:
+      "Verification of employment history, designation, tenure and exit status.",
+    badge: "7 Days",
+    color: "from-orange-500 to-amber-500",
+  },
+  {
+    icon: Fingerprint,
+    title: "UAN / EPFO Check",
+    description:
+      "Instant employment verification through EPFO and UAN employment records.",
+    badge: "Instant",
+    color: "from-sky-500 to-blue-600",
+  },
+  {
+    icon: Search,
+    title: "Criminal Court Record Check",
+    description:
+      "Jurisdiction-based criminal court searches to identify legal records.",
+    badge: "1 Day",
+    color: "from-red-500 to-pink-500",
+  },
+  {
+    icon: Globe,
+    title: "Global Database Search",
+    description:
+      "International sanctions, watchlists, compliance and adverse media screening.",
+    badge: "1 Day",
+    color: "from-cyan-500 to-blue-500",
+  },
+  {
+    icon: Users,
+    title: "Reference Check",
+    description:
+      "Structured manager and professional reference verification with documented feedback.",
+    badge: "2 Days",
+    color: "from-emerald-500 to-teal-500",
+  },
+  // {
+  //   icon: Shield,
+  //   title: "OFAC & Sanctions Check",
+  //   description:
+  //     "Regulatory sanctions screening against OFAC and other compliance databases.",
+  //   badge: "2 Days",
+  //   color: "from-rose-500 to-red-500",
+  // },
+  {
+    icon: CreditCard,
+    title: "Identity Verification",
+    description:
+      "Verification of PAN, Passport, Driving License and Voter ID through trusted sources.",
+    badge: "Instant",
+    color: "from-indigo-500 to-violet-500",
+  },
+  {
+    icon: Clock3,
+    title: "Gap Verification",
+    description:
+      "Employment and education gap analysis to identify unexplained career breaks.",
+    badge: "2 Days",
+    color: "from-yellow-500 to-orange-500",
+  },
+  {
+    icon: FileCheck2,
+    title: "CV Validation",
+    description:
+      "Resume validation to ensure candidate information is complete, accurate and authentic.",
+    badge: "1 Day",
+    color: "from-blue-600 to-indigo-600",
+  },
+  {
+    icon: FileSearch,
+    title: "Credit / CIBIL Check",
+    description:
+      "Credit history verification and financial integrity assessment using CIBIL data.",
+    badge: "1 Day",
+    color: "from-slate-600 to-slate-800",
+  },
+];
 
-const whyUs = [
-  { icon: Zap, t: 'Fast Verification', d: 'Industry-leading TAT with automated workflows.' },
-  { icon: Cpu, t: 'API Integration', d: 'Seamless HRMS/ATS integration with REST APIs.' },
-  { icon: Users, t: 'Dedicated Support', d: 'Single Point of Contact (SPOC) per client.' },
-  { icon: Lock, t: 'Secure Platform', d: 'DPDP compliant with end-to-end encryption.' },
-  { icon: Globe, t: 'PAN India Coverage', d: '5000+ field associates across urban & rural India.' },
-  { icon: Award, t: 'Enterprise Ready', p: 'ISO Ready', d: 'Audit trails, role-based access, SLAs & analytics.' },
-]
 
-const steps = [
-  { t: 'Case Initiation', d: 'Client raises case via portal, API or bulk upload.' },
-  { t: 'Data Collection', d: 'Candidate submits documents via secure portal.' },
-  { t: 'Verification Processing', d: 'Automated checks & field investigations begin.' },
-  { t: 'Verification Checks', d: '20+ checks executed in parallel with progress tracking.' },
-  { t: 'Quality Review', d: 'Multi-level QC & insufficiency management.' },
-  { t: 'Final Report', d: 'Digitally signed audit-ready report delivered.' },
-]
 
-const industries = ['IT & Software','Banking & Finance','NBFC','Insurance','Healthcare','Pharma','Manufacturing','Logistics','Retail','BPO/KPO','Education','E-Commerce','Telecom','Security','Government','Real Estate']
-
+const industries = [
+  {
+    title: "IT & Software",
+    icon: Laptop,
+    color: "from-blue-500 to-cyan-500",
+    border: "border-blue-200",
+    bg: "bg-blue-50",
+  },
+  {
+    title: "Banking & Finance",
+    icon: Landmark,
+    color: "from-green-500 to-emerald-500",
+    border: "border-green-200",
+    bg: "bg-green-50",
+  },
+  {
+    title: "NBFC",
+    icon: Wallet,
+    color: "from-amber-500 to-orange-500",
+    border: "border-amber-200",
+    bg: "bg-amber-50",
+  },
+  {
+    title: "Insurance",
+    icon: Shield,
+    color: "from-violet-500 to-fuchsia-500",
+    border: "border-violet-200",
+    bg: "bg-violet-50",
+  },
+  {
+    title: "Healthcare",
+    icon: HeartPulse,
+    color: "from-red-500 to-pink-500",
+    border: "border-red-200",
+    bg: "bg-red-50",
+  },
+  {
+    title: "Pharma",
+    icon: Pill,
+    color: "from-cyan-500 to-sky-500",
+    border: "border-cyan-200",
+    bg: "bg-cyan-50",
+  },
+  {
+    title: "Manufacturing",
+    icon: Factory,
+    color: "from-purple-500 to-indigo-500",
+    border: "border-purple-200",
+    bg: "bg-purple-50",
+  },
+  {
+    title: "Logistics",
+    icon: Truck,
+    color: "from-orange-500 to-red-500",
+    border: "border-orange-200",
+    bg: "bg-orange-50",
+  },
+  {
+    title: "Retail",
+    icon: ShoppingCart,
+    color: "from-lime-500 to-green-500",
+    border: "border-lime-200",
+    bg: "bg-lime-50",
+  },
+  {
+    title: "BPO / KPO",
+    icon: Headphones,
+    color: "from-fuchsia-500 to-purple-500",
+    border: "border-fuchsia-200",
+    bg: "bg-fuchsia-50",
+  },
+  {
+    title: "Education",
+    icon: GraduationCap,
+    color: "from-blue-600 to-indigo-500",
+    border: "border-blue-200",
+    bg: "bg-blue-50",
+  },
+  {
+    title: "E-Commerce",
+    icon: ShoppingBag,
+    color: "from-pink-500 to-rose-500",
+    border: "border-pink-200",
+    bg: "bg-pink-50",
+  },
+  {
+    title: "Telecom",
+    icon: RadioTower,
+    color: "from-sky-500 to-cyan-500",
+    border: "border-sky-200",
+    bg: "bg-sky-50",
+  },
+  {
+    title: "Security",
+    icon: ShieldCheck,
+    color: "from-orange-500 to-yellow-500",
+    border: "border-orange-200",
+    bg: "bg-orange-50",
+  },
+  {
+    title: "Government",
+    icon: Building2,
+    color: "from-emerald-500 to-green-500",
+    border: "border-emerald-200",
+    bg: "bg-emerald-50",
+  },
+  {
+    title: "Real Estate",
+    icon: Building,
+    color: "from-indigo-500 to-blue-500",
+    border: "border-indigo-200",
+    bg: "bg-indigo-50",
+  },
+];
 const testimonials = [
   { n: 'Rohit Sharma', r: 'Head of HR, IT Enterprise', q: 'Brainhunt cut our verification turnaround time by 60%. Their API plugged into our ATS in a single sprint.' },
   { n: 'Priya Iyer', r: 'Talent Acquisition Lead, NBFC', q: 'Accuracy and transparency are unmatched. We trust them for executive-level checks.' },
@@ -109,12 +320,12 @@ function HeroDashboard() {
               ))}
             </div>
           </div>
-          <div className="col-span-12 rounded-xl border border-slate-100 p-3.5 bg-slate-950 text-emerald-300 font-mono text-[11px]">
+          {/* <div className="col-span-12 rounded-xl border border-slate-100 p-3.5 bg-slate-950 text-emerald-300 font-mono text-[11px]">
             <div className="text-slate-500 mb-1">POST /api/v1/verify/pan</div>
             <div>{'{ "pan": "ABCDE1234F", "name": "Rajesh Kumar" }'}</div>
             <div className="text-slate-500 mt-2">200 OK • 142ms</div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>{'{ "status": "VALID", "name_match": true, "category": "Individual" }'}</motion.div>
-          </div>
+          </div> */}
         </div>
       </motion.div>
 
@@ -141,7 +352,7 @@ function HeroDashboard() {
 
 export default function HomePage() {
   return (
-    <div className="pt-16 lg:pt-20">
+    <div className="">
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#EAF2FF] via-white to-[#F5F9FF]" />
@@ -162,7 +373,7 @@ export default function HomePage() {
               Verify <Typewriter words={['Identity • PAN • Aadhaar','Education & Employment','Criminal & Court Records','Address & References','Credit & Global Databases']} className="text-[#0052CC]" />
             </motion.div>
             <motion.p variants={fadeUp} className="mt-5 text-lg text-slate-600 max-w-xl leading-relaxed">
-              Fast, accurate & technology-driven employee verification solutions. Trusted by 500+ companies across India for secure, compliant hiring.
+              Fast, accurate & technology-driven employee verification solutions. Trusted by 60+ companies across India for secure, compliant hiring.
             </motion.p>
             <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
               <Link href="/contact" className="group inline-flex items-center gap-2 bg-gradient-to-r from-[#0052CC] to-[#0066FF] text-white px-6 py-3.5 rounded-xl text-sm font-semibold shadow-soft hover:shadow-glow transition-all">
@@ -173,7 +384,7 @@ export default function HomePage() {
               </Link>
             </motion.div>
             <motion.div variants={fadeUp} className="mt-10 grid grid-cols-3 gap-4 max-w-md">
-              {[['500+','Companies'],['50K+','Verifications'],['98%','Accuracy']].map(([n,l]) => (
+              {[['60+','Companies'],['3K+','Verifications'],['99%','Accuracy']].map(([n,l]) => (
                 <div key={l} className="glass-blue rounded-xl px-3 py-3 text-center">
                   <div className="text-xl font-bold text-[#0052CC]">{n}</div>
                   <div className="text-[11px] text-slate-600">{l}</div>
@@ -187,116 +398,291 @@ export default function HomePage() {
       </section>
 
       {/* TRUSTED BY */}
-      <section className="py-12 border-y border-slate-100 bg-white">
-        <div className="container-x">
-          <p className="text-center text-xs uppercase tracking-[0.25em] text-slate-500 font-semibold">Trusted by enterprises and fast-growing companies</p>
-          <div className="mt-6 overflow-hidden relative">
-            <div className="flex gap-12 animate-marquee whitespace-nowrap">
-              {[...brands, ...brands].map((b, i) => (
-                <div key={i} className="text-2xl font-bold text-slate-300 hover:text-[#0052CC] transition-colors">{b}</div>
-              ))}
-            </div>
-          </div>
-          <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {[{n:500, s:'+', l:'Enterprise Clients'},{n:50000, s:'+', l:'Verifications Done'},{n:98, s:'%', l:'Accuracy Rate'},{n:24, s:'h', l:'Avg. Turnaround'}].map((x,i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i*0.1 }} className="text-center rounded-2xl border border-slate-100 p-6 hover:border-[#0052CC]/30 hover:shadow-soft transition-all">
-                <div className="text-3xl lg:text-4xl font-bold text-gradient"><Counter to={x.n} suffix={x.s} /></div>
-                <div className="mt-1 text-sm text-slate-600">{x.l}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <ClientsMarquee/>
 
       {/* WHY US */}
-      <section className="py-20">
-        <div className="container-x">
-          <SectionHead eyebrow="Why Brainhunt Ventures" title="Built for modern hiring teams" sub="Combining people, process and platform to deliver verification you can trust." />
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {whyUs.map((w, i) => (
-              <motion.div key={w.t} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ delay: i*0.06 }}
-                className="group relative rounded-2xl border border-slate-200 bg-white p-6 hover:border-[#0052CC]/40 hover:-translate-y-1 hover:shadow-glow transition-all overflow-hidden">
-                <div className="absolute -right-6 -top-6 h-24 w-24 bg-[#EAF2FF] rounded-full opacity-0 group-hover:opacity-100 transition" />
-                <div className="relative h-12 w-12 rounded-xl bg-gradient-to-br from-[#0052CC] to-[#0066FF] text-white flex items-center justify-center shadow-soft">
-                  <w.icon className="h-5 w-5" />
-                </div>
-                <h3 className="relative mt-4 text-lg font-semibold text-slate-900">{w.t}</h3>
-                <p className="relative mt-1.5 text-sm text-slate-600 leading-relaxed">{w.d}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+   <WhyChooseUs/>
 
-      {/* SERVICES */}
-      <section id="services" className="py-20 bg-gradient-to-b from-white via-[#F8FAFF] to-white">
-        <div className="container-x">
-          <SectionHead eyebrow="Services" title="20+ Background Verification Services" sub="End-to-end checks under one roof — from identity to credit, criminal to global database." />
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {services.map((s, i) => (
-              <motion.div key={s.t} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i*0.04 }}
-                className="group rounded-2xl border border-slate-200 bg-white p-5 hover:border-[#0052CC] hover:shadow-glow transition-all">
-                <div className="flex items-start gap-4">
-                  <div className="h-11 w-11 shrink-0 rounded-xl bg-[#EAF2FF] text-[#0052CC] group-hover:bg-[#0052CC] group-hover:text-white transition-colors flex items-center justify-center">
-                    <s.icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-900">{s.t}</h4>
-                    <p className="mt-1 text-sm text-slate-600">{s.d}</p>
-                  </div>
+     {/* SERVICES */}
+<section
+  id="services"
+  className="relative overflow-hidden py-20 bg-gradient-to-b from-white via-[#F8FAFF] to-white"
+>
+  {/* Background Blur */}
+  <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-blue-100/30 blur-[120px]" />
+  <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-cyan-100/30 blur-[120px]" />
+
+  <div className="container-x relative">
+
+    <SectionHead
+      eyebrow="Verification Services"
+      title="Comprehensive Background Verification Services"
+      sub="Reliable, secure and technology-driven verification solutions for modern organizations."
+    />
+
+    <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      {services.map((service, index) => {
+
+        const Icon = service.icon;
+
+        return (
+
+          <motion.div
+            key={service.title}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: .45,
+              delay: index * .05,
+            }}
+            className="group"
+          >
+
+            <div
+              className="
+                h-full
+                rounded-2xl
+                border
+                border-slate-200
+                bg-white
+                p-5
+                transition-all
+                duration-300
+                hover:-translate-y-2
+                hover:scale-[1.03]
+                hover:border-[#0052CC]
+                hover:shadow-[0_15px_40px_rgba(0,82,204,0.12)]
+              "
+            >
+
+              {/* Top */}
+
+              <div className="flex items-start justify-between">
+
+                <div
+                  className="
+                    h-12
+                    w-12
+                    rounded-xl
+                    bg-blue-50
+                    flex
+                    items-center
+                    justify-center
+                    transition-all
+                    duration-300
+                    group-hover:bg-blue-100
+                  "
+                >
+                  <Icon className="h-6 w-6 text-[#0052CC]" />
                 </div>
-              </motion.div>
-            ))}
-          </div>
-          <div className="mt-8 text-center">
-            <Link href="/products" className="inline-flex items-center gap-2 text-[#0052CC] font-semibold hover:gap-3 transition-all">
-              Explore the full verification platform <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+
+                <span
+                  className="
+                    rounded-full
+                    bg-slate-100
+                    px-3
+                    py-1
+                    text-[11px]
+                    font-semibold
+                    text-slate-600
+                  "
+                >
+                  {service.badge}
+                </span>
+
+              </div>
+
+              {/* Title */}
+
+              <h3 className="mt-5 text-lg font-semibold text-slate-900">
+                {service.title}
+              </h3>
+
+              {/* Description */}
+
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                {service.description}
+              </p>
+
+              {/* Footer */}
+
+              {/* <div className="mt-5 flex items-center justify-between">
+
+                <span className="text-sm font-semibold text-[#0052CC]">
+                  Learn More
+                </span>
+
+                <div
+                  className="
+                    h-9
+                    w-9
+                    rounded-full
+                    bg-slate-50
+                    flex
+                    items-center
+                    justify-center
+                    transition-all
+                    duration-300
+                    group-hover:bg-blue-50
+                  "
+                >
+                  <ArrowRight
+                    className="
+                      h-4
+                      w-4
+                      text-[#0052CC]
+                      transition-transform
+                      duration-300
+                      group-hover:translate-x-1
+                    "
+                  />
+                </div>
+
+              </div> */}
+
+            </div>
+
+          </motion.div>
+
+        );
+
+      })}
+
+    </div>
+
+    {/* Bottom CTA */}
+
+    <div className="mt-10 text-center">
+
+      <Link
+        href="/services"
+        className="
+          inline-flex
+          items-center
+          gap-3
+          rounded-xl
+          border
+          border-[#0052CC]
+          px-6
+          py-3
+          font-semibold
+          text-[#0052CC]
+          transition-all
+          duration-300
+          hover:bg-[#0052CC]
+          hover:text-white
+        "
+      >
+
+        View All Verification Services
+
+        <ArrowRight className="h-4 w-4" />
+
+      </Link>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* HOW IT WORKS */}
-      <section className="py-20">
-        <div className="container-x">
-          <SectionHead eyebrow="Process" title="How Verification Works" sub="A transparent, audit-ready process designed for speed and accuracy." />
-          <div className="mt-14 relative">
-            <div className="hidden lg:block absolute left-0 right-0 top-7 h-0.5 bg-gradient-to-r from-transparent via-[#0052CC]/30 to-transparent" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
-              {steps.map((s, i) => (
-                <motion.div key={s.t} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i*0.1 }} className="relative text-center">
-                  <div className="mx-auto h-14 w-14 rounded-2xl bg-white border-2 border-[#0052CC] text-[#0052CC] font-bold flex items-center justify-center shadow-soft relative z-10">
-                    {i+1}
-                  </div>
-                  <h4 className="mt-3 font-semibold text-slate-900 text-sm">{s.t}</h4>
-                  <p className="mt-1.5 text-xs text-slate-600 leading-relaxed">{s.d}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+   
+    <Workflow/>
 
       {/* INDUSTRIES */}
-      <section className="py-20 bg-gradient-to-b from-[#F8FAFF] to-white">
-        <div className="container-x">
-          <SectionHead eyebrow="Industries Served" title="Tailored for every sector" sub="From BFSI to BPO, healthcare to logistics — we power verification at scale." />
-          <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {industries.map((ind, i) => (
-              <motion.div key={ind} initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i*0.03 }}
-                className="group rounded-xl border border-slate-200 bg-white px-4 py-5 text-center hover:border-[#0052CC] hover:bg-gradient-to-br hover:from-[#0052CC] hover:to-[#0066FF] hover:text-white hover:-translate-y-1 transition-all cursor-default shadow-sm hover:shadow-glow">
-                <div className="text-sm font-semibold">{ind}</div>
-              </motion.div>
-            ))}
-          </div>
-          <div className="mt-8 text-center">
-            <Link href="/industries" className="inline-flex items-center gap-2 text-[#0052CC] font-semibold hover:gap-3 transition-all">View all industries <ArrowRight className="h-4 w-4" /></Link>
-          </div>
+      <section className="py-24 bg-gradient-to-b from-[#F8FAFF] via-white to-[#F8FAFF]">
+
+    <div className="container-x">
+
+        <SectionHead
+            eyebrow="Industries Served"
+            title="Tailored for Every Industry"
+            sub="Helping organizations across multiple sectors build trusted and compliant workforces."
+        />
+
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+
+            {industries.map((industry, index) => {
+
+                const Icon = industry.icon;
+
+                return (
+
+                    <motion.div
+                        key={industry.title}
+                        initial={{opacity:0,y:30}}
+                        whileInView={{opacity:1,y:0}}
+                        transition={{duration:.45,delay:index*.05}}
+                        viewport={{once:true}}
+                        className={`group relative overflow-hidden rounded-3xl border ${industry.border} bg-white p-6 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl`}
+                    >
+
+                        {/* Background Gradient */}
+
+                        <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br ${industry.color}`} />
+
+                        {/* Content */}
+
+                        <div className="relative z-10 flex items-center justify-between">
+
+                            <div className={`h-16 w-16 rounded-2xl ${industry.bg} flex items-center justify-center group-hover:bg-white/20 transition`}>
+
+                                <Icon className="h-8 w-8 text-slate-700 group-hover:text-white"/>
+
+                            </div>
+
+                            <div className="h-10 w-10 rounded-full border border-slate-200 flex items-center justify-center bg-white shadow-sm group-hover:bg-white/20 group-hover:border-white/40">
+
+                                <ArrowRight className="h-4 w-4 text-slate-600 group-hover:text-white"/>
+
+                            </div>
+
+                        </div>
+
+                        <h3 className="relative z-10 mt-7 text-xl font-bold text-slate-900 group-hover:text-white transition">
+
+                            {industry.title}
+
+                        </h3>
+
+                        <p className="relative z-10 mt-2 text-sm text-slate-500 leading-6 group-hover:text-blue-100 transition">
+
+                            Trusted background verification solutions designed for the {industry.title} industry.
+
+                        </p>
+
+                    </motion.div>
+
+                );
+
+            })}
+
         </div>
-      </section>
+
+        <div className="mt-16 flex justify-center">
+
+            <Link
+                href="/industries"
+                className="group inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-[#0052CC] to-[#2563EB] px-8 py-4 text-white font-semibold shadow-xl hover:scale-105 transition"
+            >
+
+                View All Industries
+
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition"/>
+
+            </Link>
+
+        </div>
+
+    </div>
+
+</section>
 
       {/* TESTIMONIALS */}
-      <section className="py-20 overflow-hidden">
+      {/* <section className="py-20 overflow-hidden">
         <div className="container-x">
           <SectionHead eyebrow="Testimonials" title="Loved by HR leaders" sub="Hear from talent leaders building secure, compliant workforces with us." />
         </div>
@@ -318,31 +704,13 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ */}
       <FAQ />
 
       {/* CTA */}
-      <section className="py-16">
-        <div className="container-x">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0052CC] via-[#0066FF] to-[#3B82F6] p-10 lg:p-16 text-white animate-gradient">
-            <div className="absolute -top-20 -right-20 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
-            <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
-            <div className="relative grid lg:grid-cols-[1fr_auto] gap-6 items-center">
-              <div>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Ready to Verify Your Workforce?</h2>
-                <p className="mt-3 text-white/85 max-w-2xl">Schedule a 30-minute demo to see how Brainhunt Ventures can transform your hiring with secure, fast and compliant background verification.</p>
-                <div className="mt-4 flex items-center gap-5 text-sm"><span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4" /> No credit card</span><span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4" /> 30-min walkthrough</span><span className="inline-flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4" /> Custom pricing</span></div>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <Link href="/contact" className="inline-flex items-center gap-2 bg-white text-[#0052CC] px-6 py-3.5 rounded-xl text-sm font-bold shadow-xl hover:scale-105 transition-transform">Schedule Demo <ArrowRight className="h-4 w-4" /></Link>
-                <a href="mailto:contact@brainhuntventures.com" className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 px-6 py-3.5 rounded-xl text-sm font-semibold backdrop-blur"><Mail className="h-4 w-4" /> Email Us</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     <CTA/>
     </div>
   )
 }
