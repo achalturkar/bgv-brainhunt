@@ -5,8 +5,8 @@ import AnimatedBackground from '../ui/AnimatedBackground'
 
 const services = ['PAN Verification','Aadhaar Verification','Education Verification','Employment Verification','Criminal Record Check','Address Verification','Reference Check','Credit Check','Police Verification','Global Database Check']
 const industries = ['IT & Software','Banking & Finance','NBFC','Insurance','Healthcare','Pharma','Manufacturing','Logistics','Retail','BPO/KPO']
-const products = ['Verification Portal','Client Dashboard','Candidate Dashboard','Bulk Upload','API Integration','Mobile App','Analytics & Reports']
-const quick = [['About Us','/about'],['Products','/products'],['Services','/services'],['Industries','/industries'],['Careers','/careers'],['Contact','/contact']]
+// const products = ['Verification Portal','Client Dashboard','Candidate Dashboard','Bulk Upload','API Integration','Mobile App','Analytics & Reports']
+const quick = [['About Us','/about'],['Services','/services'],['Industries','/industries'],['Careers','/careers'],['Contact','/contact']]
 
 export default function Footer() {
   return (
@@ -30,7 +30,7 @@ export default function Footer() {
             <div className="mt-6 space-y-3 text-sm">
               <div className="flex items-start gap-3"><MapPin className="h-4 w-4 text-[#7AB3FF] mt-0.5 shrink-0" /><span>Plot No.3, 2nd Floor, Indraprastha Apartment, Dronacharya Nagar, Trimurti Nagar, Nagpur — 440022, India</span></div>
               <div className="flex items-start gap-3"><MapPin className="h-4 w-4 text-[#7AB3FF] mt-0.5 shrink-0" /><span>Office No 5, 2nd floor, Siddhivinayak Towers, Bibvewadi Road, Pune — 411037, India</span></div>
-              <a href="tel:+919960224245" className="flex items-center gap-3 hover:text-white"><Phone className="h-4 w-4 text-[#7AB3FF]" /> +91 9960224245</a>
+              <a href="tel:+919960224245" className="flex items-center gap-3 hover:text-white"><Phone className="h-4 w-4 text-[#7AB3FF]" /> +91 9960224245 / +91 9689003720 / +91 8329917749</a>
               <a href="mailto:contact@brainhuntventures.com" className="flex items-center gap-3 hover:text-white"><Mail className="h-4 w-4 text-[#7AB3FF]" /> contact@brainhuntventures.com</a>
             </div>
 
@@ -52,10 +52,10 @@ export default function Footer() {
                 <li key={h}><Link href={h} className="hover:text-white inline-flex items-center gap-1.5 group"><ArrowRight className="h-3 w-3 opacity-0 -ml-4 group-hover:ml-0 group-hover:opacity-100 transition-all" />{n}</Link></li>
               ))}
             </ul>
-            <h4 className="text-white font-semibold mt-7 mb-4 text-sm tracking-wide">Products</h4>
-            <ul className="space-y-2.5 text-sm">
+            {/* <h4 className="text-white font-semibold mt-7 mb-4 text-sm tracking-wide">Products</h4> */}
+            {/* <ul className="space-y-2.5 text-sm">
               {products.slice(0,5).map((p) => <li key={p} className="hover:text-white cursor-default">{p}</li>)}
-            </ul>
+            </ul> */}
           </div>
         </div>
 

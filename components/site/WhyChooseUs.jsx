@@ -58,7 +58,7 @@ const features = [
     title: "PAN India Coverage",
     description:
       "Nationwide verification network covering metro cities, towns and rural locations.",
-    badge: "5000+ Associates",
+    badge: "3000+ Associates",
     color: "from-orange-500 to-amber-500",
     bg: "bg-orange-50",
     border: "border-orange-200",

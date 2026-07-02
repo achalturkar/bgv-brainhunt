@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { MessageCircle, X } from 'lucide-react'
 
 const MSG = "Hello Team Brainhunt Ventures, I would like to know more about your Background Verification Services."
-const WA_URL = `https://wa.me/919960224245?text=${encodeURIComponent(MSG)}`
+const WA_URL = `https://wa.me/919689003720?text=${encodeURIComponent(MSG)}`
 
 export default function WhatsAppButton() {
   const [hint, setHint] = useState(true)

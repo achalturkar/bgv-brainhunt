@@ -7,9 +7,9 @@ import AnimatedBackground from '../ui/AnimatedBackground'
 const FAQS = [
   { q: 'What is Background Verification (BGV)?', a: 'Background Verification is the process of authenticating a candidate\'s identity, employment, education, address, criminal history and other credentials to make confident, risk-aware hiring decisions.' },
   { q: 'How long does verification take with Brainhunt Ventures?', a: 'Most checks are completed within 24–72 hours. Bulk PAN/Aadhaar identity checks return in seconds via our APIs. Field-based checks like address & police verification typically close within 5–7 working days.' },
-  { q: 'Is your platform DPDP and ISO compliant?', a: 'Yes. Our platform is aligned with India\'s Digital Personal Data Protection (DPDP) Act and built on ISO 27001-ready architecture with end-to-end encryption, RBAC and full audit trails.' },
-  { q: 'Can you integrate with our HRMS or ATS?', a: 'Absolutely. We offer REST APIs, webhooks and pre-built connectors for popular HRMS/ATS platforms. Most integrations go live in a single sprint.' },
-  { q: 'Do you cover PAN India for field verifications?', a: 'Yes — our field network of 5,000+ associates covers all major Indian cities and tier-2/3 towns, including rural locations across every state and UT.' },
+  // { q: 'Is your platform DPDP and ISO compliant?', a: 'Yes. Our platform is aligned with India\'s Digital Personal Data Protection (DPDP) Act and built on ISO 27001-ready architecture with end-to-end encryption, RBAC and full audit trails.' },
+  // { q: 'Can you integrate with our HRMS or ATS?', a: 'Absolutely. We offer REST APIs, webhooks and pre-built connectors for popular HRMS/ATS platforms. Most integrations go live in a single sprint.' },
+  { q: 'Do you cover PAN India for field verifications?', a: 'Yes — our field network of 3,000+ associates covers all major Indian cities and tier-2/3 towns, including rural locations across every state and UT.' },
   { q: 'What pricing models do you offer?', a: 'We offer pay-per-check, package-based and enterprise volume pricing. Custom packages can be tailored to your industry and hiring volume — contact sales for details.' },
 ]
 

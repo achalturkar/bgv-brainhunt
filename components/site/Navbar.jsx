@@ -8,6 +8,7 @@ import {
   Menu, X, ShieldCheck, ChevronDown,
   Building2, Cpu, Cog, Factory, Briefcase,
   ArrowRight, Phone, Globe, Search,
+  CardSimIcon,
 } from 'lucide-react'
 
 // ─── Nav structure ────────────────────────────────────────────────────────────
@@ -21,7 +22,7 @@ const NAV = [
         {
           heading: 'Company',
           items: [
-            { icon: Building2, label: 'Who We Are',     href: '/about',           desc: 'Our story, mission & values' },
+            { icon: Building2, label: 'Who We Are', href: '/about', desc: 'Our story, mission & values' },
             // { icon: Globe,     label: 'Global Presence', href: '/about',   desc: 'Operations across 12 countries' },
             // { icon: Briefcase, label: 'Leadership',      href: '/about',     desc: 'Meet our executive team' },
           ],
@@ -30,23 +31,23 @@ const NAV = [
       cta: { label: 'View full profile →', href: '/about' },
     },
   },
-  {
-    name: 'Products',
-    href: '/products',
-    mega: {
-      sections: [
-        {
-          heading: 'Verification Suite',
-          items: [
-            { icon: ShieldCheck, label: 'BGV Platform',   href: '/products',      desc: 'End-to-end background checks' },
-            // { icon: Cpu,         label: 'AI Risk Engine',  href: '/products/ai',       desc: 'Real-time risk intelligence' },
-            { icon: Globe,       label: 'Global Database', href: '/products',  desc: '200+ verified records' },
-          ],
-        },
-      ],
-      cta: { label: 'Explore all products →', href: '/products' },
-    },
-  },
+  // {
+  //   name: 'Products',
+  //   href: '/products',
+  //   mega: {
+  //     sections: [
+  //       {
+  //         heading: 'Verification Suite',
+  //         items: [
+  //           { icon: ShieldCheck, label: 'BGV Platform',   href: '/products',      desc: 'End-to-end background checks' },
+  //           // { icon: Cpu,         label: 'AI Risk Engine',  href: '/products/ai',       desc: 'Real-time risk intelligence' },
+  //           { icon: Globe,       label: 'Global Database', href: '/products',  desc: '200+ verified records' },
+  //         ],
+  //       },
+  //     ],
+  //     cta: { label: 'Explore all products →', href: '/products' },
+  //   },
+  // },
   {
     name: 'Services',
     href: '/services',
@@ -56,8 +57,8 @@ const NAV = [
           heading: 'What We Do',
           items: [
             { icon: ShieldCheck, label: 'Employment Checks', href: '/services', desc: 'Verify past roles & credentials' },
-            { icon: Cog,         label: 'Criminal Records',  href: '/services',   desc: 'Multi-jurisdiction screening' },
-            { icon: Building2,   label: 'Company Diligence', href: '/services',    desc: 'Corporate background checks' },
+            { icon: Cog, label: 'Criminal Records', href: '/services', desc: 'Multi-jurisdiction screening' },
+            { icon: Building2, label: 'Company Diligence', href: '/services', desc: 'Corporate background checks' },
           ],
         },
       ],
@@ -72,9 +73,9 @@ const NAV = [
         {
           heading: 'We Serve',
           items: [
-            { icon: Factory,  label: 'Financial Services', href: '/industries',  desc: 'BFSI-grade compliance screening' },
-            { icon: Cpu,      label: 'Technology',          href: '/industries',     desc: 'Fast-track for high-growth teams' },
-            { icon: Building2,label: 'Healthcare',          href: '/industries',   desc: 'Clinical & non-clinical staff' },
+            { icon: Factory, label: 'Financial Services', href: '/industries', desc: 'BFSI-grade compliance screening' },
+            { icon: Cpu, label: 'Technology', href: '/industries', desc: 'Fast-track for high-growth teams' },
+            { icon: Building2, label: 'Healthcare', href: '/industries', desc: 'Clinical & non-clinical staff' },
           ],
         },
       ],
@@ -90,8 +91,8 @@ function MegaPanel({ mega }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 8, scale: 0.98 }}
-      animate={{ opacity: 1, y: 0,  scale: 1 }}
-      exit={{ opacity: 0, y: 8,  scale: 0.98 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 8, scale: 0.98 }}
       transition={{ duration: 0.18, ease: [0.4, 0, 0.2, 1] }}
       className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[340px] z-50"
     >
@@ -141,9 +142,9 @@ function MegaPanel({ mega }) {
 
 // ─── Main Navbar ──────────────────────────────────────────────────────────────
 export default function Navbar() {
-  const pathname  = usePathname()
-  const [open, setOpen]             = useState(false)
-  const [scrolled, setScrolled]     = useState(false)
+  const pathname = usePathname()
+  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const [activeMenu, setActiveMenu] = useState(null)
   const [searchOpen, setSearchOpen] = useState(false)
   const timerRef = useRef(null)
@@ -157,9 +158,9 @@ export default function Navbar() {
 
   useEffect(() => { setOpen(false); setActiveMenu(null) }, [pathname])
 
-  const openMenu  = (name) => { clearTimeout(timerRef.current); setActiveMenu(name) }
-  const closeMenu = ()     => { timerRef.current = setTimeout(() => setActiveMenu(null), 120) }
-  const stayOpen  = ()     => clearTimeout(timerRef.current)
+  const openMenu = (name) => { clearTimeout(timerRef.current); setActiveMenu(name) }
+  const closeMenu = () => { timerRef.current = setTimeout(() => setActiveMenu(null), 120) }
+  const stayOpen = () => clearTimeout(timerRef.current)
 
   return (
     <>
@@ -262,11 +263,19 @@ export default function Navbar() {
             </button> */}
 
             {/* Outline CTA */}
-            <Link
-              href="/contact"
+            {/* <Link
+              href="/BVPL-Background-Verification-Services.pdf"
+              target="_blank"
               className="px-4 py-2 rounded-lg text-[13px] font-semibold text-[#0052CC] border border-[#0052CC]/30 hover:bg-[#EAF2FF] transition-colors"
             >
-              Talk to BGV
+              BGV Proposal
+            </Link> */}
+
+            <Link href="/BVPL-Background-Verification-Services.pdf" target="_blank">
+              <div
+                className="px-4 py-2 rounded-lg text-[13px] font-semibold text-[#0052CC] border border-[#0052CC]/30 hover:bg-[#EAF2FF] transition-colors"
+              >              Download Proposal
+              </div>
             </Link>
 
             {/* Primary CTA */}
@@ -290,8 +299,8 @@ export default function Navbar() {
               <motion.span
                 key={open ? 'x' : 'menu'}
                 initial={{ rotate: -90, opacity: 0 }}
-                animate={{ rotate: 0,   opacity: 1 }}
-                exit={{ rotate: 90,    opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.15 }}
                 className="flex"
               >
@@ -386,11 +395,14 @@ export default function Navbar() {
 
               {/* Drawer footer */}
               <div className="p-4 border-t border-slate-100 space-y-2.5">
-                <Link
-                  href="/contact"
-                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-[#0052CC]/30 text-[#0052CC] text-sm font-semibold hover:bg-[#EAF2FF] transition-colors"
-                >
-                  Talk to BGV
+
+                <Link href="/BVPL-Background-Verification-Services.pdf" target="_blank">
+                  <div
+                    className=" flex gap-2 items-center justify-center px-4 py-2 rounded-lg text-[13px] font-semibold text-[#0052CC] border border-[#0052CC]/30 hover:bg-[#EAF2FF] transition-colors"
+                  >  
+                  <CardSimIcon/>
+                  Download Proposal
+                  </div>
                 </Link>
                 <Link
                   href="/contact"
@@ -403,7 +415,7 @@ export default function Navbar() {
                 {/* Contact info */}
                 <div className="pt-2 flex items-center gap-2 text-[12px] text-slate-400">
                   <Phone className="h-3 w-3" />
-                  1800-123-4567 · Mon–Sat 9am–7pm
+                  9689003720 · Mon–Sat 9am–7pm
                 </div>
               </div>
             </motion.aside>
